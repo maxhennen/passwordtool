@@ -1,11 +1,9 @@
 package com.example.passwordtool.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Password")
 public class Password {
     @Id
     @GeneratedValue
@@ -48,4 +46,5 @@ public class Password {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

@@ -1,13 +1,11 @@
 package com.example.passwordtool.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "User")
 public class User{
     @Id
     @GeneratedValue
@@ -18,8 +16,6 @@ public class User{
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    //private List<Password> passwords;
 
     public User() {
     }
@@ -52,14 +48,6 @@ public class User{
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<Password> getPasswords() {
-//        return passwords;
-//    }
-//
-//    public void setPasswords(List<Password> passwords) {
-//        this.passwords = passwords;
-//    }
 
 
     @Override

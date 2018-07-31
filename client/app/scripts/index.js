@@ -1,32 +1,32 @@
 var app = angular.module('main',['ngRoute']);
 
 app.config(function ($routeProvider){
-    console.log("erthjy" + $routeProvider);
+
     $routeProvider
         .when("/", {
-            templateUrl: '../views/login.html',
-            controller: "loginController",
-            css : '../views/style.css'
+            templateUrl: '/client/app/views/login.html',
+            controller: "loginController"
         })
         .when("/home", {
-            templateUrl: "../views/home.html",
+            templateUrl: "/client/app/views/home.html",
             controller: "homeController"
         })
         .when("/register", {
-            templateUrl: "../views/register.html",
+            templateUrl: "/client/app/views/register.html",
             controller: "registerController"
-        }).otherwise({
-            redirectTo : ""
+        })
+        .otherwise({
+            redirectTo : '/'
     });
 })
-    .controller("homeController", function ($scope, $http) {
-
-        $scope.message = "Hoi";
-
-        $http.get("http://localhost:8080/all-users")
-            .then(function (response) {
-                $scope.users = response.data;
-            });
+    .controller("homeController", function ($scope, $http,$log) {
+        $http({
+            method:'GET',
+            url:'http://localhost:8080/all-users'})
+                .then(function (response) {
+                    $log.info(response);
+                    console.log(response.name);
+                })
     })
     .controller("loginController", function ($scope) {
     })
