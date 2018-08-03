@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "email",nullable = false, unique = true)
@@ -17,12 +17,20 @@ public class User{
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name="password", nullable = false)
+    private String password;
+
+    @Column(name = "verified")
+    private boolean verified;
+
     public User() {
     }
 
-    public User(String email, String name) {
+    public User(String email, String name, String password, boolean verified) {
         this.email = email;
         this.name = name;
+        this.password = password;
+        this.verified = verified;
     }
 
     public long getId() {
@@ -49,6 +57,21 @@ public class User{
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
 
     @Override
     public String toString() {

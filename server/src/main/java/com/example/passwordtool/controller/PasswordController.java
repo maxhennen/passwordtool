@@ -1,6 +1,6 @@
 package com.example.passwordtool.controller;
 
-import com.example.passwordtool.repository.PasswordRepository;
+import com.example.passwordtool.dao.PasswordRepository;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

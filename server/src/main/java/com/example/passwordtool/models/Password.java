@@ -3,7 +3,7 @@ package com.example.passwordtool.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Password")
+@Table(name = "passwords")
 public class Password {
     @Id
     @GeneratedValue
@@ -15,12 +15,16 @@ public class Password {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "user_id", nullable = false)
+    private long user_id;
+
     public Password() {
     }
 
-    public Password(String content, String password) {
+    public Password(String content, String password, long user_id) {
         this.content = content;
         this.password = password;
+        this.user_id = user_id;
     }
 
     public long getId() {
@@ -47,4 +51,11 @@ public class Password {
         this.password = password;
     }
 
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
 }
