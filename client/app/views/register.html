@@ -1,10 +1,12 @@
 <div class="form">
     <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="text" placeholder="email address"/>
-        <input type="password" placeholder="password"/>
-        <input type="password" placeholder="confirm password"/>
-        <button>create</button>
+        <input type="text" placeholder="name" ng-required="true" ng-model="user.name"/>
+        <input placeholder="email" ng-model="user.email" id="two" required type="email" title="Please enter the valid email format (e.g. example@email.com)" x-moz-errormessage="Please enter the valid email format (e.g. example@email.com)" />
+        <input type="password" placeholder="password" ng-required="true" ng-model="user.password" />
+        <label class="errorPasswordsMatch">{{errorValidPassword}}</label>
+        <input type="password" placeholder="confirm password" ng-required="true" ng-model="user.confirm" />
+        <label class="errorPasswordsMatch">{{errorMatchPassword}}</label>
+        <button ng-click="registerUser()">create</button>
         <p class="message">Already registered? <a href="#/">Sign In</a></p>
     </form>
 </div>

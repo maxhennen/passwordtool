@@ -128,3 +128,15 @@ header {
   transform: translate(-50%, -50%);
 }
 
+input .ng-invalid-email {
+  border: 1px solid red;
+}
+
+.errorPasswordsMatch {
+  background-color: red;
+  color: white;
+  margin: 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+
